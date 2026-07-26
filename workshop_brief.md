@@ -19,8 +19,8 @@ Requirements:
 - Final collective piece
 
 Important:
-Avoid AI-generated art.
-Focus on emergence, experimentation and play.
+Not with / about AI-generated art.
+Focus on experimentation and play.
 
 Prefer references to:
 - Vera Molnár
