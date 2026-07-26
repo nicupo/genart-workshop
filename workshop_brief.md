@@ -4,7 +4,7 @@ Audience:
 Programmers with little or no experience in generative art.
 
 Duration:
-4h online + 4h in person.
+3h online + 4h in person.
 
 Goal:
 Teach generative art as designing systems rather than drawing images.
@@ -21,3 +21,11 @@ Requirements:
 Important:
 Avoid AI-generated art.
 Focus on emergence, experimentation and play.
+
+Prefer references to:
+- Vera Molnár
+- Casey Reas
+- Karl Sims
+- Jared Tarbell
+- Daniel Shiffman
+- academic sources
