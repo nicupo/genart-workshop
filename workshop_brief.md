@@ -21,11 +21,3 @@ Requirements:
 Important:
 Not with / about AI-generated art.
 Focus on experimentation and play.
-
-Prefer references to:
-- Vera Molnár
-- Casey Reas
-- Karl Sims
-- Jared Tarbell
-- Daniel Shiffman
-- academic sources
