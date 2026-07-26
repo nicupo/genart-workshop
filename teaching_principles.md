@@ -16,7 +16,7 @@ Avoid large frameworks.
 
 Keep p5.js sketches under ~200 lines where possible.
 
-The workshop is about emergence, not making pretty pictures.
+The workshop is about systems and emergence, not making pretty pictures.
 
 Optimize for teaching and experimentation, not software engineering.
 
