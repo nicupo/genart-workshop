@@ -1,95 +1,279 @@
 // ============================================================
-// CHAPTER 01 — RANDOMNESS — WORKSHOP VERSION
-// Follow along live. Each STEP below starts commented out —
-// uncomment it when we get there, don't jump ahead.
-// (See sketch.js in this folder for the finished reference version.)
+// CHAPTER 01 — RANDOMNESS
+//
+// Follow the steps in the workshop.
+// Each step reveals another way a system can use randomness.
+//
+// Concepts:
+// - random()
+// - loops
+// - grids
+// - seeds
+// - noise()
+// - thresholds
+//
+// Core pattern:
+//
+// location → value → drawing
+//
+// This pattern appears everywhere in generative systems.
 // ============================================================
 
-// --- SEEDING --- (explained in STEP 3, declared here so it's ready)
-let currentSeed = 42;
 
-// --- CANVAS SETTINGS ---
-let canvasWidth = 600;
-let canvasHeight = 600;
+// ============================================================
+// SETTINGS
+// ============================================================
+
+let seed = 42;
+
+let columns = 20;
+let rows = 20;
+
+let noiseScale = 0.12;
+
+
+// ============================================================
+// setup()
+// Runs once.
+// ============================================================
 
 function setup() {
-  createCanvas(canvasWidth, canvasHeight);
 
-  // STEP 3 — uncomment both lines below when we get to seeding:
-  // randomSeed(currentSeed);
-  // noiseSeed(currentSeed);
+  createCanvas(600, 600);
 
   noStroke();
+
+
+  // STEP 3 — uncomment when we discuss seeds
+  //
+  // randomSeed(seed);
+  // noiseSeed(seed);
+
 }
 
-function draw() {
-  background(17);
 
-  // ============================================================
-  // STEP 1 — ONE random value, no loop yet.
-  // Uncomment these two lines first.
-  // ============================================================
-  // let singleRandomSize = random(20, 100);
-  // ellipse(width / 2, height / 2, singleRandomSize, singleRandomSize);
-
-
-  // ============================================================
-  // STEP 2 — THE LOOP + random() per cell.
-  // Uncomment this whole block once we've discussed Step 1's flicker
-  // and are ready to fix it with a grid.
-  // ============================================================
-  // let numberOfColumns = 20;
-  // let numberOfRows = 20;
-  // let cellWidth = canvasWidth / numberOfColumns;
-  // let cellHeight = canvasHeight / numberOfRows;
-  //
-  // for (let columnIndex = 0; columnIndex < numberOfColumns; columnIndex++) {
-  //   for (let rowIndex = 0; rowIndex < numberOfRows; rowIndex++) {
-  //     let xPosition = columnIndex * cellWidth + cellWidth / 2;
-  //     let yPosition = rowIndex * cellHeight + cellHeight / 2;
-  //
-  //     let randomSize = random(2, cellWidth * 0.9);
-  //     ellipse(xPosition, yPosition, randomSize, randomSize);
-
-
-  //     // ========================================================
-  //     // STEP 4 — noise(), compared side by side with random().
-  //     // Uncomment once Step 2 + Step 3 (seeding) are both running.
-  //     // ========================================================
-  //     // let noiseScale = 0.1;
-  //     // let noiseValue = noise(columnIndex * noiseScale, rowIndex * noiseScale);
-  //     // let noiseSize = noiseValue * cellWidth * 0.9;
-  //     //
-  //     // fill(255, 220);
-  //     // ellipse(xPosition, yPosition, noiseSize, noiseSize);
-  //     //
-  //     // noFill();
-  //     // stroke(255, 80);
-  //     // ellipse(xPosition, yPosition, randomSize, randomSize);
-  //     // noStroke();
-
-
-  //     // ========================================================
-  //     // STEP 5 — the conditional (if/else).
-  //     // Uncomment last, after noise() is running.
-  //     // ========================================================
-  //     // if (noiseValue > 0.6) {
-  //     //   fill(255, 60, 60);
-  //     //   rectMode(CENTER);
-  //     //   rect(xPosition, yPosition, 4, 4);
-  //     // }
-  //   }
-  // }
-}
 
 // ============================================================
-// TRY THIS (after Step 5 is running):
-// 1. Change currentSeed — confirm the pattern returns when you
-//    set it back to 42.
-// 2. Comment out the noise circles, keep only random — notice
-//    the static-like look.
-// 3. Change noiseScale from 0.1 to 0.02.
-// 4. Change the 0.6 threshold and watch the red squares respond.
-// 5. BONUS — add frameCount as a third argument to noise() to
-//    bring back yesterday's "time" ingredient.
+// draw()
+// Runs continuously.
+// ============================================================
+
+function draw() {
+
+
+  background(17);
+
+
+
+  // ==========================================================
+  // STEP 1 — ONE RANDOM VALUE
+  //
+  // Purpose:
+  // See what uncontrolled randomness looks like.
+  //
+  // Uncomment these two lines first.
+  // ==========================================================
+
+
+  // let size = random(20, 150);
+  // ellipse(width / 2, height / 2, size, size);
+
+
+
+  // ==========================================================
+  // STEP 2 — RANDOM VALUES ON A GRID
+  //
+  // Instead of one object:
+  // visit many locations and give each one a value.
+  //
+  // Uncomment this block after Step 1.
+  // ==========================================================
+
+
+  /*
+  let cellWidth = width / columns;
+  let cellHeight = height / rows;
+
+
+  for (let x = 0; x < columns; x++) {
+
+    for (let y = 0; y < rows; y++) {
+
+
+      let centerX =
+        x * cellWidth + cellWidth / 2;
+
+      let centerY =
+        y * cellHeight + cellHeight / 2;
+
+
+
+      let size = random(2, cellWidth * 0.9);
+
+
+      ellipse(
+        centerX,
+        centerY,
+        size,
+        size
+      );
+
+
+    }
+
+  }
+  */
+
+
+
+  // ==========================================================
+  // STEP 4 — NOISE()
+  //
+  // Replace the random size above with noise.
+  //
+  // Uncomment the block below after Step 3.
+  // Compare random() and noise().
+  // ==========================================================
+
+
+  /*
+  let cellWidth = width / columns;
+  let cellHeight = height / rows;
+
+
+  for (let x = 0; x < columns; x++) {
+
+    for (let y = 0; y < rows; y++) {
+
+
+      let centerX =
+        x * cellWidth + cellWidth / 2;
+
+      let centerY =
+        y * cellHeight + cellHeight / 2;
+
+
+
+      let value = noise(
+        x * noiseScale,
+        y * noiseScale
+      );
+
+
+      let size = value * cellWidth;
+
+
+      ellipse(
+        centerX,
+        centerY,
+        size,
+        size
+      );
+
+
+    }
+
+  }
+  */
+
+
+
+  // ==========================================================
+  // STEP 5 — VALUE BECOMES A DECISION
+  //
+  // Randomness creates information.
+  // The system decides what to do.
+  //
+  // This is the bridge to cellular automata.
+  // ==========================================================
+
+
+  /*
+  let cellWidth = width / columns;
+  let cellHeight = height / rows;
+
+
+  for (let x = 0; x < columns; x++) {
+
+    for (let y = 0; y < rows; y++) {
+
+
+      let centerX =
+        x * cellWidth + cellWidth / 2;
+
+      let centerY =
+        y * cellHeight + cellHeight / 2;
+
+
+      let value = noise(
+        x * noiseScale,
+        y * noiseScale
+      );
+
+
+      if (value > 0.6) {
+
+
+        fill(255);
+
+        rectMode(CENTER);
+
+        rect(
+          centerX,
+          centerY,
+          5,
+          5
+        );
+
+
+      }
+
+
+    }
+
+  }
+  */
+
+
+}
+
+
+
+// ============================================================
+// SAVE ARTWORK
+//
+// Press S to export the current canvas.
+// ============================================================
+
+function keyPressed() {
+
+  if (key === "s") {
+
+    saveCanvas(
+      "randomness-artwork",
+      "png"
+    );
+
+  }
+
+}
+
+
+
+// ============================================================
+// OTHER POSSIBLE EXPERIMENTS
+//
+// 1. Change seed.
+// 2. Change noiseScale.
+// 3. Change threshold.
+// 4. Add frameCount to noise:
+//
+//    noise(
+//      x * noiseScale,
+//      y * noiseScale,
+//      frameCount * 0.01
+//    )
+//
+// This brings TIME back into randomness.
+//
 // ============================================================
