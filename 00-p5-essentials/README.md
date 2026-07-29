@@ -21,6 +21,7 @@ Open `index.html` in a browser. No build step, no install — just double-click 
 - `frameCount` as p5's built-in animation clock
 - `sin()` for smooth oscillation between -1 and 1
 - `map()` — rescaling a value from one range into another (used here to drive color from the same oscillation driving size)
+- `saveCanvas()` - export the current canvas as a PNG image file
 
 ## Try this
 1. Change `circleSize`'s base value (100) to 200. What happens?

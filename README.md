@@ -24,3 +24,6 @@ Lessons also link a shared `../shared/error-logger.js`.
 - `06-interaction`
 - `07-sound`
 - `08-final-system`
+
+## Coverage note
+Not every in-person session covers every lesson — how much fits depends on the group's starting skill level and the time available. This repo stays the full concept map regardless, so any lesson not reached in a given session is still here for next time.

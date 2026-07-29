@@ -99,6 +99,32 @@ function draw() {
 }
 
 // ============================================================
+// SAVE YOUR ARTWORK — press 's' to export the current canvas
+// as a PNG image file, downloaded straight to your computer.
+//
+// This is how your piece gets out of the browser and into a
+// file you can actually hand over for the group composite —
+// nothing about a sketch matters for that purpose until it
+// exists as an image on disk, not just pixels on a screen.
+// ============================================================
+function keyPressed() {
+  if (key === 's') {
+    // saveCanvas(filename, extension) grabs exactly what's on
+    // screen right now and downloads it. Change the filename
+    // (the first argument) to something that identifies YOUR
+    // piece — e.g. your name — so it doesn't get lost among
+    // everyone else's exports.
+    saveCanvas('my-artwork', 'png');
+  }
+
+  // If this sketch already has its own keyPressed() function
+  // for other keys (like space to randomize), merge this into
+  // that SAME function instead of having two — a sketch can only
+  // have one keyPressed(), the second one would just override
+  // the first and silently break your other key.
+}
+
+// ============================================================
 // TRY THIS (in-workshop exercises):
 // 1. Change circleBaseSize to 200. What happens?
 // 2. Change the 0.05 inside sin(frameCount * 0.05) to 0.2.
