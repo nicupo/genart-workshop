@@ -5,5 +5,5 @@ function setup() {
 }
 
 function draw() {
-  // intentionally empty — add to lessons
+
 }
