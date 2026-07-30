@@ -55,7 +55,7 @@ let cellSize = 8;      // size of each cell on screen
 let cells = [];         // the current generation
 let nextCells = [];     // the generation we're calculating
 let generation = 0;     // how many rows we've drawn so far
-
+let maxGen = 0;       // how many rows to draw before stopping
 // The rule, written out as 8 explicit answers — one per possible
 // neighborhood, in the order shown in the table above. This is
 // "Rule 30": index 0 = "111", index 1 = "110", ... index 7 = "000".
@@ -94,7 +94,8 @@ function draw() {
 
   // Stop once we've filled the canvas — otherwise we'd keep
   // calculating and drawing rows below where anyone can see them.
-  if (generation * cellSize > height) {
+  // if (generation * cellSize > height) {
+  if (generation > maxGen) {
     noLoop(); // stop the draw loop ()
     // generation = 0; // start over from the top of the canvas instead of stopping
   }
@@ -164,6 +165,11 @@ function keyPressed() {
     // Uncomment the line below for: new starting row AND new rule,
     // instead of just a new starting row with Rule 30 unchanged.
     // randomizeRule();
+    maxGen = 0;
+  }
+  if (key === 'ArrowDown') {
+    maxGen ++;
+    loop()
   }
 }
 
