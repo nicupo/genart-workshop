@@ -24,7 +24,7 @@ p5.js is our starting point because it lets us quickly turn ideas into visible b
 4. Open:
 
 ```
-00-p5-essentials/index.html
+0-begin/index.html
 ```
 
 in your browser.
@@ -41,7 +41,7 @@ If you already use VS Code:
 2. Open a lesson folder, for example:
 
 ```
-00-p5-essentials
+0-begin/index.html
 ```
 
 3. Edit:
@@ -92,7 +92,7 @@ Lessons are standalone and can be opened directly in a browser.
 
 ## Lessons (narrative order)
 
-- `template`
+- `0-begin`
 - `00-p5-essentials`
 - `01-randomness`
 - `02-rules`
